@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-900 text-white;
+  }
+}
+
+@layer components {
+  .game-cell {
+    @apply transition-all duration-75;
+  }
+  
+  .snake-segment {
+    @apply bg-gradient-to-br from-green-400 to-green-600 rounded-sm;
+    animation: pulse 0.5s ease-in-out infinite;
+  }
+  
+  .food {
+    @apply bg-gradient-to-br from-red-400 to-red-600 rounded-full;
+    animation: bounce 0.5s ease-in-out infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(0.95);
+    }
+    50% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: scale(0.9);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+}
